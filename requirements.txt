@@ -1,0 +1,2 @@
+-e git+https://github.com/Rapptz/discord.py@async#egg=discord.py
+requests>=2.0.0
