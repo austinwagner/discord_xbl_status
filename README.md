@@ -11,7 +11,7 @@ This script expects all of your info to be in a JSON file (I suggest you make su
 This script uses newer Python features and thus requires Python 3.4+
 
 ### Example Configuration File
-```json
+```javascript
 {
   // JSON files do not allow comments, these are for documentation purposes only
 
