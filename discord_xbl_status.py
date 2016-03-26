@@ -29,11 +29,11 @@ class XblPresenceMonitorConfig(object):
         self.title_settings = {} if title_settings is None else CaseInsensitiveDict(title_settings)
 
     def __str__(self):
-        return '{ discord_username: {}, discord_password: [HIDDEN], xbox_live_id: {}, ' \
-               'xbox_api_key: [HIDDEN], update_interval: {}, title_settings: {}'.format(self.discord_username,
-                                                                                        self.xbox_live_id,
-                                                                                        self.update_interval,
-                                                                                        self.title_settings)
+        return '{{ discord_username: {}, discord_password: [HIDDEN], xbox_live_id: {}, ' \
+               'xbox_api_key: [HIDDEN], update_interval: {}, title_settings: {} }}'.format(self.discord_username,
+                                                                                           self.xbox_live_id,
+                                                                                           self.update_interval,
+                                                                                           self.title_settings)
 
 
 class XblPresenceMonitor(object):
@@ -62,6 +62,11 @@ class XblPresenceMonitor(object):
         presence = resp.json()
 
         log.debug('Xbox API response: %s', presence)
+
+        success = presence.get('success', True)
+        if not success:
+            log.error('Xbox API error %d: %s', presence['error_code'], presence['error_message'])
+            return
 
         new_status = None
         if presence['state'] == 'Online' and len(presence['devices']) > 0:
@@ -190,7 +195,7 @@ def main():
 
         monitor_config = create_monitor_config(config)
     except Exception as e:
-        print('Failed to load config: %s', e)
+        print('Failed to load config: %s' % e)
         sys.exit(1)
 
     logging_config = config.get('logging')
