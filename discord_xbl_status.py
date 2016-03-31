@@ -200,6 +200,7 @@ def main():
 
     logging_config = config.get('logging')
     if logging_config is not None:
+        logging_config['disable_existing_loggers'] = False
         logging.config.dictConfig(logging_config)
         log.info('Using logging config from file')
     else:
