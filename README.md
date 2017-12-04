@@ -52,4 +52,4 @@ Use the included requirements file to install the dependencies:
 
 ## Usage
 
-`python discord_xbl_monitor.py --config=<config file>`
+`python discord_xbl_status.py --config=<config file>`
