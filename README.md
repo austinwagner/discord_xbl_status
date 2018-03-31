@@ -1,3 +1,5 @@
+**THIS REPOSITORY IS NO LONGER MAINTAINED AND EXISTS ONLY FOR ARCHIVAL PURPOSES. It does not support 2FA and was meant to be superceded by (the incomplete) discord_console_status. That project was put to a halt for the same reason I suggest this project not be used: the Discord Terms of Service are phrased in a way where usage of this could be in violation. If you want this functionality, I suggest you reach out to the Hammer & Chisel as well as to Microsoft and Sony. Open-letters on social media or their forums would be the best way to draw attention to the desire to have these services play nice with Discord.** 
+
 # Discord Xbox Live Status Monitor
 
 This script polls the API provided by [xboxapi.com](https://xboxapi.com) at regular intervals to see if the account is currently playing a game. The game is set as the active game for a Discord user prefixed with either 'XB1' or '360' depending on the console being used.
