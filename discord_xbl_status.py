@@ -84,7 +84,7 @@ class XblPresenceMonitor(object):
             else:
                 log.info('Updating status to "%s"', new_status)
 
-            yield from self._discord_client.change_status(None if new_status is None else discord.Game(name=new_status))
+            yield from self._discord_client.change_presence(game=discord.Game(name=new_status))
 
     def _make_status_string(self, device, title):
         title_name = title['name']
